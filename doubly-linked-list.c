@@ -13,7 +13,7 @@ typedef struct Head{
 
 int initialize(headNode** h);
 int freeList(headNode* h); 
-listNode* createNode(int key); // 삽입할 노드 생성하는 함수
+listNode* createNode(int key); // 삽입할 노드 생성하는 정의
 int insertNode(headNode* h, int key);
 int insertLast(headNode* h, int key);
 int insertFirst(headNode* h, int key);
@@ -21,7 +21,7 @@ int deleteNode(headNode* h, int key);
 int deleteLast(headNode* h);
 int deleteFirst(headNode* h);
 int invertList(headNode* h);
-void printList(headNode* h); //선언
+void printList(headNode* h); // 선언부
 
 int main(){
     printf("----------------[2018068040]--------[Park Taehyun]--------------\n");
@@ -126,7 +126,6 @@ int freeList(headNode* h){
     return 0;
 }
 
-
 listNode* createNode(int key){
     listNode* n = (listNode*)malloc(sizeof(listNode)); // 노드 할당
     n->key = key; 
@@ -134,7 +133,6 @@ listNode* createNode(int key){
 
     return n;
 } //삽입할 노드 만들어주는 함수(insert함수들에서 중복이 많아 선언했습니다.)
-
 
 int insertNode(headNode* h, int key){
     listNode* p = h->first; //삽입 위치 찾을 노드 포인터
@@ -272,8 +270,8 @@ int deleteFirst(headNode* h){
         free(p);    
     } 
     else{ // 노드 1개 이상인 리스트
-        h->first = p->rlink;
-        p->rlink->llink = NULL;
+        h->first = p->rlink; 
+        p->rlink->llink = NULL; 
         free(p);
     }
     return 0;
